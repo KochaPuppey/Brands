@@ -3,7 +3,7 @@ body {
   padding: 0;
 }
 
-header {
+h1 {
   font-family: "TT Lakes", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -12,11 +12,6 @@ header {
 }
 .brands {
   margin-left: 32px !important;
-}
-img {
-  margin: 16px 28px 0 0;
-}
-.swiper {
   background-image: linear-gradient(270deg, #F8F8F8 16.84%, rgba(248, 248, 248, 0.0001) 100%);
 }
 .swiper-slide {
@@ -25,26 +20,55 @@ img {
 .swiper-wrapper{
   padding-bottom: 30px;
 }
-.image_slider__image img{
+.image_slider__image img {
   max-width: 100%;
 }
 
-.swiper-button-next {
-  transform: translate(-1200px, 0px);
+.brand {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  width: 224px !important;
+  height: 72px !important;
+  margin: 16px 32px 0 0 !important;
+  border: 1px solid gainsboro !important;
+  border-radius: 10px !important;
+  padding-left: 16px !important;
+  align-items: center !important;
 }
-.popup {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  gap: 8px;
+.brand img {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  max-width: 60% !important;
+  max-height: 60% !important;
+  display: block !important;
 }
+.brand > button {
+  position: relative !important;
+  z-index: 2;
+  flex: 0 0 40px;
+  width: 40px !important;
+  height: 40px !important;
+  border: 3px solid #FF3E79 !important;
+  border-radius:50% !important;
+  margin-left: auto !important;
+  margin-right: 16px !important;
+}
+
+.brand > button::before {
+  content:"" !important;
+  position: absolute !important;
+  width: 7px !important;
+  height:7px !important;
+  border: 3px solid #FF3E79 !important;
+  border-left: 0 !important;
+  border-top: 0 !important;
+  transform: rotate(-45deg) !important;
+  translate: -50% -50% !important;
+}
+
 
 .popup_line {
   margin: 0px 0 0 24px;
-}
-
-.active {
-  transform: rotate(180deg);
 }
 
 button {
@@ -58,19 +82,33 @@ button {
   outline: inherit;
 }
 .popup_button {
+  margin: 24px 0 0 24px;
   font-family: "TT Lakes", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-  margin: 0;
+  padding-left: 24px;
 }
 
+.popup_button::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  width: 24px; height: 24px;
+  background: url("../img/expand.svg");
+  background-repeat: no-repeat;
+}
+
+.popup_button.active::before {
+  transform: rotate(180deg);
+}
 .popup_container {
   display: none;
 }
 .popup-show {
-  display: block;
+  display: flex;
   margin-left: 32px;
+  background-image: linear-gradient(270deg, #F8F8F8 16.84%, rgba(248, 248, 248, 0.0001) 100%);
 }
 
 @media (max-width: 767px) {
@@ -82,11 +120,25 @@ button {
   .popup_line {
     display: none;
   }
-  button {
+  .popup_button_open {
     display: none;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width:1119px) {
+  .brands {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+  .brand {
+    width: 208px !important;
+    height: 72px !important;
+  }
+  .swiper-wrapper{
+    padding-bottom: 0px;
+  }
+}
+
+@media (min-width:1119px) {
   .brands {
     display: flex !important;
     flex-wrap: wrap !important;

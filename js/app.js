@@ -1,6 +1,6 @@
 let popupContainer = document.querySelector('.popup_container');
 let brandsOpen = document.querySelector('.popup_button_open');
-let arrowRotate = document.querySelector('.popup_line')
+let arrowRotate = document.querySelector('.popup_button')
 
 brandsOpen.addEventListener('click', function () {
   if (popupContainer.classList.contains('popup-show')) {
